@@ -1,0 +1,40 @@
+plugins {
+    id 'application'
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '4.0.0-M2'
+    id 'io.spring.dependency-management' version '1.1.7'
+
+}
+group = 'org.ashlesha'
+version = '1.0-SNAPSHOT'
+description = '(अश्लेषा) ashlesha-Inspired Banking System for Strategic Investment'
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(24)
+    }
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'org.ashlesha.ashlesha'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
